@@ -6,40 +6,64 @@
         <div class="container">
           <div class="logo-container">
             <!-- Website Logo -->
-            <span style="font-size: 35px;color: white;">ooo</span>
-            <span class="tag-line">OOOO大学信息交流平台</span>
+            <span style="font-size: 35px; color: white">校园招聘</span>
+            <span class="tag-line">湄职院招聘信息平台</span>
           </div>
           <!-- Start of Main Navigation -->
           <nav class="main-nav">
             <div class="menu-top-menu-container">
               <ul id="menu-top-menu" class="clearfix">
-                <router-link to="/" tag="li" exact-active-class="current-menu-item">
+                <router-link
+                  to="/"
+                  tag="li"
+                  exact-active-class="current-menu-item"
+                >
                   <a>首页</a>
                 </router-link>
-                <router-link to="/help" tag="li" exact-active-class="current-menu-item">
+                <router-link
+                  to="/help"
+                  tag="li"
+                  exact-active-class="current-menu-item"
+                >
                   <a>问答</a>
                 </router-link>
-                <router-link to="/activity" tag="li" exact-active-class="current-menu-item">
+                <router-link
+                  to="/activity"
+                  tag="li"
+                  exact-active-class="current-menu-item"
+                >
                   <a>活动</a>
                 </router-link>
-                <router-link to="/job" tag="li" exact-active-class="current-menu-item">
+                <router-link
+                  to="/job"
+                  tag="li"
+                  exact-active-class="current-menu-item"
+                >
                   <a>招聘信息</a>
                 </router-link>
-                <router-link to="/oldstuff" tag="li" exact-active-class="current-menu-item">
+                <router-link
+                  to="/oldstuff"
+                  tag="li"
+                  exact-active-class="current-menu-item"
+                >
                   <a>二手信息</a>
                 </router-link>
-                <router-link to="/news" tag="li" exact-active-class="current-menu-item">
+                <router-link
+                  to="/news"
+                  tag="li"
+                  exact-active-class="current-menu-item"
+                >
                   <a>文章/新闻</a>
                 </router-link>
 
-                <li v-if="avatar==''">
+                <li v-if="avatar == ''">
                   <a @click="closein">登录/注册</a>
                 </li>
                 <el-dropdown v-else>
-                  <a style="color: #c1cad1;">
+                  <a style="color: #c1cad1">
                     <img
-                      v-if="unread==0"
-                      style="     height: 20px; "
+                      v-if="unread == 0"
+                      style="height: 20px"
                       :src="avatar"
                       class="avatar touxiang avatar-60 photo"
                       height="20"
@@ -47,18 +71,23 @@
                     />
                     <el-badge v-else :value="unread" class="item">
                       <img
-                        style="     height: 20px; "
+                        style="height: 20px"
                         :src="avatar"
                         class="avatar touxiang avatar-60 photo"
                         height="20"
                         width="20"
                       />
                     </el-badge>
-                    {{nickname}}
+                    {{ nickname }}
                   </a>
                   <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item>
-                      <router-link to="/admin" tag="a" exact-active-class="current-menu-item">个人中心</router-link>
+                      <router-link
+                        to="/admin"
+                        tag="a"
+                        exact-active-class="current-menu-item"
+                        >个人中心</router-link
+                      >
                     </el-dropdown-item>
 
                     <el-dropdown-item>
@@ -67,7 +96,7 @@
                         tag="li"
                         exact-active-class="current-menu-item"
                       >
-                        <a v-if="unread==0">消息中心</a>
+                        <a v-if="unread == 0">消息中心</a>
                         <el-badge v-else :value="unread" class="item">
                           <a>消息中心</a>
                         </el-badge>
@@ -115,9 +144,9 @@
       <div class="search-area container">
         <h3 class="search-header">OOOOOOOOOOOO</h3>
         <!-- <button class="header-btn">发布信息</button> -->
-        <p class="search-tag-line" style="margin-top:50px">
-          Information sharing and communication platform of OOOOOOOOOOOO University
-          , Makes information transfer easier
+        <p class="search-tag-line" style="margin-top: 50px">
+          Information sharing and communication platform of OOOOOOOOOOOO
+          University , Makes information transfer easier
         </p>
 
         <form class="search-form clearfix" @submit.prevent="onSubmit">
@@ -127,7 +156,12 @@
             v-model="search"
             placeholder="Type your search terms here"
           />
-          <input class="search-btn" type="submit" @click="searchbtn" value="搜索" />
+          <input
+            class="search-btn"
+            type="submit"
+            @click="searchbtn"
+            value="搜索"
+          />
           <div id="search-error-container"></div>
         </form>
       </div>
@@ -142,26 +176,43 @@
     <div class="login" v-if="isclose">
       <div id="mask"></div>
       <div id="loginBox">
-        <h2>{{islogin?"网站登录":"新用户注册"}}</h2>
+        <h2>{{ islogin ? "网站登录" : "新用户注册" }}</h2>
         <div class="user">
           账 号：
           <input type="text" v-model="username" name="username" class="text" />
         </div>
         <div class="pass">
           密 码：
-          <input type="password" v-model="password" name="password" class="text" />
+          <input
+            type="password"
+            v-model="password"
+            name="password"
+            class="text"
+          />
         </div>
         <div class="pass" v-if="!islogin">
           确 认：
-          <input type="password" v-model="password1" name="password" class="text" />
+          <input
+            type="password"
+            v-model="password1"
+            name="password"
+            class="text"
+          />
         </div>
         <div class="button" v-if="islogin">
           <input type="button" @click="login" value="登录" class="submit" />
         </div>
         <div class="button" v-else>
-          <input type="button" value="注册" @click="   registered " class="submit" />
+          <input
+            type="button"
+            value="注册"
+            @click="registered"
+            class="submit"
+          />
         </div>
-        <div class="other" @click="join">{{islogin?"注册新用户":"快去登录"}}</div>
+        <div class="other" @click="join">
+          {{ islogin ? "注册新用户" : "快去登录" }}
+        </div>
         <a class="iconfont" @click="close">&#xe608;</a>
       </div>
     </div>
@@ -176,7 +227,7 @@ import moment from "moment";
 export default {
   name: "index",
   components: {
-    foot
+    foot,
   },
   data() {
     return {
@@ -185,17 +236,17 @@ export default {
       password1: "",
       username: "",
       hover: false,
-      search: ""
+      search: "",
     };
   },
   computed: {
     ...mapState({
-      isclose: state => state.user.isclose,
-      islogin: state => state.user.islogin,
-      avatar: state => state.user.userinfo.avatar,
-      nickname: state => state.user.userinfo.nickname,
-      unread: state => state.user.unread
-    })
+      isclose: (state) => state.user.isclose,
+      islogin: (state) => state.user.islogin,
+      avatar: (state) => state.user.userinfo.avatar,
+      nickname: (state) => state.user.userinfo.nickname,
+      unread: (state) => state.user.unread,
+    }),
   },
   methods: {
     ...mapActions("user", [
@@ -205,7 +256,7 @@ export default {
       "join",
       "close",
       "setunread",
-      "deleteuserinfo"
+      "deleteuserinfo",
     ]),
     //个人hover弹窗
     overShow() {
@@ -271,7 +322,7 @@ export default {
       }
       let obj = {
         password: this.password,
-        username: this.username
+        username: this.username,
       };
       this.$axios({
         url: "/webadmin/registered",
@@ -280,9 +331,9 @@ export default {
         //    'Content-Type':'application/x-www-form-urlencoded',
         //    'Authorization': 'Bearer ' + window.localStorage.getItem('luffy_jwt_token')
         //    },
-        data: this.qs.stringify(obj)
+        data: this.qs.stringify(obj),
       })
-        .then(res => {
+        .then((res) => {
           let data = res.data;
           if (data.state.type !== "SUCCESS") {
             if (data.state.type == "ERROR_PARAMS_EXIST") {
@@ -295,7 +346,7 @@ export default {
           this.$message.success("注册成功请登录");
           this.join();
         })
-        .catch(e => {
+        .catch((e) => {
           this.$message.error(e);
         });
     },
@@ -313,14 +364,14 @@ export default {
       let obj = {
         password: this.password,
         username: this.username,
-        type: ""
+        type: "",
       };
       this.$axios({
         url: "/webadmin/login",
         method: "POST",
-        data: this.qs.stringify(obj)
+        data: this.qs.stringify(obj),
       })
-        .then(res => {
+        .then((res) => {
           let data = res.data.data;
           if (res.data.state.type === "SUCCESS") {
             this.$message.success("登录成功");
@@ -338,22 +389,22 @@ export default {
           if (res.data.state.type === "ERROE")
             this.$message.error("用户名或密码错误");
         })
-        .catch(e => {
+        .catch((e) => {
           this.$message(e);
         });
     },
-    async getnocitenmu() {     
-          const res = await this.$axios.post(
-            "/web/getnotice",
-            this.qs.stringify({ num: 1 })
-          );
-          console.log(res.data);
-          this.setunread(res.data.data.count);
-    }
+    async getnocitenmu() {
+      const res = await this.$axios.post(
+        "/web/getnotice",
+        this.qs.stringify({ num: 1 })
+      );
+      console.log(res.data);
+      this.setunread(res.data.data.count);
+    },
   },
   created() {
-     localStorage.luffy_jwt_token&&this.getnocitenmu();
-  }
+    localStorage.luffy_jwt_token && this.getnocitenmu();
+  },
 };
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -456,4 +507,3 @@ export default {
   cursor: pointer;
 }
 </style>
-

@@ -1,8 +1,8 @@
 const Database = {}
 
-Database.host = '120.27.242.132'//ip
+Database.host = '124.221.62.25'//ip
 Database.user = 'root'//用户名
-Database.password = '     '//密码
+Database.password = 'mysql@2024Amazon'//密码
 Database.port = 3306//端口
-Database.database = 'changhangtong'//数据库名
+Database.database = 'maoshijin'//数据库名
 exports.dbmysql =  Database
